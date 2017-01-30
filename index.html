@@ -25,13 +25,18 @@
         }
         body{
           background:black;
-          align-items: center;
-          text:white;
         }
-
+        div{
+            color:white;
+        }
+        svg{
+            display: block;
+            margin :auto;
+        }
     </style>
 </head>
 <body>
+    <center><div>This is a map is plotting recorded meteor landing from data from NASA.</div></center>
 </body>
 <script>
     var width = 960,
@@ -72,7 +77,7 @@ svg.append("use")
 
     queue()
 	   .defer(d3.json, 'world.json')
-	    .defer(d3.json, 'tsconfig.json')
+	    .defer(d3.json, 'https://data.nasa.gov/resource/y77d-th95.json')
 	     .await(makeMyMap);
 
     function makeMyMap(error, world,tsconfig) {
